@@ -4,7 +4,7 @@ public class testeDeClasse {
 
 	private String nome;
 	private String sobrenome;
-	private int idade;
+	private int idades;
 	private String email;
 	private String cnpj;
 
@@ -19,12 +19,6 @@ public class testeDeClasse {
 	}
 	public void setSobrenome(String sobrenome) {
 		this.sobrenome = sobrenome;
-	}
-	public int getIdade() {
-		return idade;
-	}
-	public void setIdade(int idade) {
-		this.idade = idade;
 	}
 	public String getEmail() {
 		return email;
