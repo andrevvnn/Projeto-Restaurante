@@ -9,7 +9,6 @@ public class Sobremesa {
 	private String nome;
 	private String quantidadeML;
 	private int quantidadeEstoque;
-	private int teste;
 	
 	public BigDecimal getValor() {
 		return valor;
