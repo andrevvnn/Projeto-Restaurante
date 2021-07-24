@@ -32,5 +32,11 @@ public class testeDeClasse {
 	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
+	public int getIdades() {
+		return idades;
+	}
+	public void setIdades(int idades) {
+		this.idades = idades;
+	}
 	
 }
