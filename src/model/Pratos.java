@@ -1,13 +1,22 @@
 package model;
 
+import java.math.BigDecimal;
+
 public class Pratos {
   private String nome;
   private String tipo;
   private int quantidade;
   private int quantidadeemestoque;
+  private BigDecimal preco;
   
 public String getNome() {
 	return nome;
+}
+public BigDecimal getPreco() {
+	return preco;
+}
+public void setPreco(BigDecimal preco) {
+	this.preco = preco;
 }
 public void setNome(String nome) {
 	this.nome = nome;
