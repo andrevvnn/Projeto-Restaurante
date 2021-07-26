@@ -7,6 +7,7 @@ public class Pratos {
   private String tipo;
   private int quantidade;
   private int quantidadeemestoque;
+  private String erro;
   private BigDecimal preco;
   
 public String getNome() {
