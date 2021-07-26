@@ -5,6 +5,7 @@ public class Pratos {
   private String tipo;
   private int quantidade;
   private int quantidadeemestoque;
+  private String erro;
   
 public String getNome() {
 	return nome;
