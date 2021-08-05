@@ -2,6 +2,7 @@ package controller;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -23,8 +24,13 @@ public class ContaController {
 	public static void main(String[] args) {
 		//suco de 12
 		//refri de 5.5
+		
+		ContaController conta = new ContaController();
 
 		List<Bebidas> listaBebidas = new ArrayList<Bebidas>();
+		List<Lanches> listaLanches = new ArrayList<Lanches>();
+		List<Pratos> listaPratos = new ArrayList<Pratos>();
+		
 		
 		Bebidas bebida = new Bebidas();
 		bebida.setNome("guarana antartica");
@@ -44,7 +50,6 @@ public class ContaController {
 		listaBebidas.add(bebida);
 		listaBebidas.add(bebida1);
 		
-		List<Lanches> listaLanches = new ArrayList<Lanches>();
 		Lanches lanche = new Lanches();
 		lanche.setNome("Bauru");
 		lanche.setQuantidade(1);
@@ -52,7 +57,6 @@ public class ContaController {
 		
 		listaLanches.add(lanche);
 		
-		List<Pratos> listaPratos = new ArrayList<Pratos>();
 		Pratos prato = new Pratos();
 		prato.setNome("Macarronada");
 		prato.setQuantidade(1);
@@ -68,28 +72,44 @@ public class ContaController {
 		
 		listaPratos.add(prato);
 		listaPratos.add(prato1);
+	
 		
+		BigDecimal valorTotal = new BigDecimal(0);
 		
+		valorTotal = valorTotal
+				.add(conta.retornaValorTotalDaListaDeBebidas(listaBebidas))
+				.add(conta.retornaValorTotalDaListaDeLanches(listaLanches))
+				.add(conta.retornaValorTotalDaListaDePratos(listaPratos));
+		
+		System.out.println("Valor Total da conta : R$" + valorTotal);
+		
+	}
+	
+	
+	
+	public BigDecimal retornaValorTotalDaListaDePratos (List<Pratos>listaPratos) {
 		BigDecimal somaPratos = new BigDecimal(0);
 		BigDecimal pratosresultado = new BigDecimal(0);
-		
 		for (int i = 0; i < listaPratos.size(); i++) {
-			 somaPratos = listaPratos.get(i).getPreco();
+			somaPratos = listaPratos.get(i).getPreco();
 			
-			 pratosresultado = pratosresultado.add(somaPratos);
+			pratosresultado = pratosresultado.add(somaPratos);
 		}
-		
-		
+		return pratosresultado;
+	}
+	
+	public BigDecimal retornaValorTotalDaListaDeLanches (List<Lanches> lista ) {
 		BigDecimal somaLanches = new BigDecimal(0);
 		BigDecimal lancheresultado = new BigDecimal(0);
-		
 		for (int i = 0; i < listaLanches.size(); i++) {
 			somaLanches = listaLanches.get(i).getPreco();
 			
 			lancheresultado = lancheresultado.add(somaLanches);
 		}
-		
-		
+		return lancheresultado;
+	}
+
+	public BigDecimal retornaValorTotalDaListaDeBebidas (List<Bebidas>listaBebidas ) {
 		BigDecimal somaBebidas = new BigDecimal(0);
 		BigDecimal bebidasresultado = new BigDecimal(0);
 		
@@ -97,18 +117,9 @@ public class ContaController {
 			somaBebidas = listaBebidas.get(i).getPreco();
 			
 			bebidasresultado = bebidasresultado.add(somaBebidas);
+			
 		}
-		
-		
-		
-		BigDecimal valorTotal = new BigDecimal(0);
-		
-		valorTotal = valorTotal
-				.add(bebidasresultado)
-				.add(lancheresultado)
-				.add(pratosresultado);
-		
-		System.out.println("Valor Total da conta : R$" + valorTotal);
+		return bebidasresultado;
 		
 	}
 }
