@@ -88,6 +88,7 @@ public class ContaController {
 	
 	
 	public BigDecimal retornaValorTotalDaListaDePratos (List<Pratos>listaPratos) {
+		
 		BigDecimal somaPratos = new BigDecimal(0);
 		BigDecimal pratosresultado = new BigDecimal(0);
 		for (int i = 0; i < listaPratos.size(); i++) {
@@ -98,9 +99,11 @@ public class ContaController {
 		return pratosresultado;
 	}
 	
-	public BigDecimal retornaValorTotalDaListaDeLanches (List<Lanches> lista ) {
+	public BigDecimal retornaValorTotalDaListaDeLanches (List<Lanches>listaLanches) {
+		
 		BigDecimal somaLanches = new BigDecimal(0);
 		BigDecimal lancheresultado = new BigDecimal(0);
+		
 		for (int i = 0; i < listaLanches.size(); i++) {
 			somaLanches = listaLanches.get(i).getPreco();
 			
@@ -110,6 +113,7 @@ public class ContaController {
 	}
 
 	public BigDecimal retornaValorTotalDaListaDeBebidas (List<Bebidas>listaBebidas ) {
+		
 		BigDecimal somaBebidas = new BigDecimal(0);
 		BigDecimal bebidasresultado = new BigDecimal(0);
 		
