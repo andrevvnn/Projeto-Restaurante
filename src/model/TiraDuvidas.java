@@ -12,7 +12,6 @@ public class TiraDuvidas {
 		ContaController conta = new ContaController();
 		List<Lanches> testeLista = new ArrayList<Lanches>();
 		
-		conta.retornaValor
 	}
 
 }

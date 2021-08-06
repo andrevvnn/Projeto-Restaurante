@@ -6,9 +6,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
+import inicializacao.CardapioInicializao;
 import model.Bebidas;
 import model.Lanches;
 import model.Pratos;
+import model.Sobremesa;
 
 public class ContaController {
 	
@@ -27,9 +29,10 @@ public class ContaController {
 		
 		ContaController conta = new ContaController();
 
-		List<Bebidas> listaBebidas = new ArrayList<Bebidas>();
-		List<Lanches> listaLanches = new ArrayList<Lanches>();
-		List<Pratos> listaPratos = new ArrayList<Pratos>();
+		List<Bebidas> listaBebidas = new CardapioInicializao().retornaListaBebidas();
+		List<Lanches> listaLanches = new CardapioInicializao().retornaListaLanches();
+		List<Pratos> listaPratos = new CardapioInicializao().retornaListaPratos();
+		List<Sobremesa> listaSobremesas = new CardapioInicializao().retornaListaSobremesa();
 		
 		
 		Bebidas bebida = new Bebidas();
@@ -60,14 +63,14 @@ public class ContaController {
 		Pratos prato = new Pratos();
 		prato.setNome("Macarronada");
 		prato.setQuantidade(1);
-		prato.setQuantidadeemestoque(10);
+		prato.setQuantidadeEstoque(10);
 		prato.setPreco(new BigDecimal("15.00"));
 		prato.setTipo("Massa");
 		
 		Pratos prato1 = new Pratos();
 		prato1.setNome("Bife Acebolado");
 		prato1.setQuantidade(1);
-		prato1.setQuantidadeemestoque(13);
+		prato1.setQuantidadeEstoque(13);
 		prato1.setPreco(new BigDecimal("18.50"));
 		
 		listaPratos.add(prato);
@@ -80,6 +83,7 @@ public class ContaController {
 				.add(conta.retornaValorTotalDaListaDeBebidas(listaBebidas))
 				.add(conta.retornaValorTotalDaListaDeLanches(listaLanches))
 				.add(conta.retornaValorTotalDaListaDePratos(listaPratos));
+			
 		
 		System.out.println("Valor Total da conta : R$" + valorTotal);
 		

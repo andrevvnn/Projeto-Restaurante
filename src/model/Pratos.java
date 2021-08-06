@@ -3,11 +3,11 @@ package model;
 import java.math.BigDecimal;
 
 public class Pratos {
-  private String nome;
-  private String tipo;
-  private int quantidade;
-  private int quantidadeemestoque;
-  private BigDecimal preco;
+	private String nome;
+  	private String tipo;
+  	private int quantidade;
+  	private int quantidadeEstoque;
+  	private BigDecimal preco;
   
 	public String getNome() {
 		return nome;
@@ -33,11 +33,12 @@ public class Pratos {
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
 	}
-	public int getQuantidadeemestoque() {
-		return quantidadeemestoque;
+	public int getQuantidadeEstoque() {
+		return quantidadeEstoque;
 	}
-	public void setQuantidadeemestoque(int quantidadeemestoque) {
-		this.quantidadeemestoque = quantidadeemestoque;
+	public void setQuantidadeEstoque(int quantidadeEstoque) {
+		this.quantidadeEstoque = quantidadeEstoque;
 	}
+
   
 }
