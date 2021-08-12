@@ -1,10 +1,7 @@
 package controller;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Scanner;
 
 import inicializacao.CardapioInicializao;
 import model.Bebidas;
@@ -28,65 +25,27 @@ public class ContaController {
 		//refri de 5.5
 		
 		ContaController conta = new ContaController();
-
-		List<Bebidas> listaBebidas = new CardapioInicializao().retornaListaBebidas();
-		List<Lanches> listaLanches = new CardapioInicializao().retornaListaLanches();
-		List<Pratos> listaPratos = new CardapioInicializao().retornaListaPratos();
-		List<Sobremesa> listaSobremesas = new CardapioInicializao().retornaListaSobremesa();
+		CardapioInicializao cardapioInicializao = new CardapioInicializao();
 		
 		
-		Bebidas bebida = new Bebidas();
-		bebida.setNome("guarana antartica");
-		bebida.setMarca("guarana");
-		bebida.setAlcoolico(false);
-		bebida.setPreco(new BigDecimal("5.50"));
-		bebida.setQuantidadeestoque(150);
-		bebida.setQuantidadeML("350 ml");
+		List<Bebidas> listaBebidas = cardapioInicializao.retornaListaBebidas();
+		List<Lanches> listaLanches = cardapioInicializao.retornaListaLanches();
+		List<Pratos> listaPratos = cardapioInicializao.retornaListaPratos();
+		List<Sobremesa> listaSobremesas = cardapioInicializao.retornaListaSobremesa();
 		
-		Bebidas bebida1 = new Bebidas();
-		bebida1.setNome("Suco de laranja");
-		bebida1.setAlcoolico(false);
-		bebida1.setPreco(new BigDecimal("12.00"));
-		bebida1.setQuantidadeestoque(30);
-		bebida1.setQuantidadeML("1L");
 		
-		listaBebidas.add(bebida);
-		listaBebidas.add(bebida1);
-		
-		Lanches lanche = new Lanches();
-		lanche.setNome("Bauru");
-		lanche.setQuantidade(1);
-		lanche.setPreco(new BigDecimal("17.70"));
-		
-		listaLanches.add(lanche);
-		
-		Pratos prato = new Pratos();
-		prato.setNome("Macarronada");
-		prato.setQuantidade(1);
-		prato.setQuantidadeEstoque(10);
-		prato.setPreco(new BigDecimal("15.00"));
-		prato.setTipo("Massa");
-		
-		Pratos prato1 = new Pratos();
-		prato1.setNome("Bife Acebolado");
-		prato1.setQuantidade(1);
-		prato1.setQuantidadeEstoque(13);
-		prato1.setPreco(new BigDecimal("18.50"));
-		
-		listaPratos.add(prato);
-		listaPratos.add(prato1);
-	
-		
+			
 		BigDecimal valorTotal = new BigDecimal(0);
 		
 		valorTotal = valorTotal
 				.add(conta.retornaValorTotalDaListaDeBebidas(listaBebidas))
 				.add(conta.retornaValorTotalDaListaDeLanches(listaLanches))
-				.add(conta.retornaValorTotalDaListaDePratos(listaPratos));
+				.add(conta.retornaValorTotalDaListaDePratos(listaPratos))
+				.add(conta.retornaValorTotalDasListasDeSobremesas(listaSobremesas));
 			
 		
 		System.out.println("Valor Total da conta : R$" + valorTotal);
-		
+
 	}
 	
 	
@@ -100,6 +59,7 @@ public class ContaController {
 			
 			pratosresultado = pratosresultado.add(somaPratos);
 		}
+		System.out.println(pratosresultado);
 		return pratosresultado;
 	}
 	
@@ -113,6 +73,7 @@ public class ContaController {
 			
 			lancheresultado = lancheresultado.add(somaLanches);
 		}
+		System.out.println(lancheresultado);
 		return lancheresultado;
 	}
 
@@ -127,7 +88,23 @@ public class ContaController {
 			bebidasresultado = bebidasresultado.add(somaBebidas);
 			
 		}
+		System.out.println(bebidasresultado);
 		return bebidasresultado;
 		
+	}
+	public BigDecimal retornaValorTotalDasListasDeSobremesas (List<Sobremesa>listaSobremesas) {
+		
+		BigDecimal somaSobremesas = new BigDecimal(0);
+		BigDecimal
+		sobremesasResultado = new BigDecimal(0);
+		
+		for (int i = 0; i < listaSobremesas.size(); i++) {
+			somaSobremesas = listaSobremesas.get(i).getValor();
+			
+			sobremesasResultado = somaSobremesas.add(sobremesasResultado);		
+			
+		}
+		System.out.println(sobremesasResultado);
+		return sobremesasResultado;
 	}
 }
