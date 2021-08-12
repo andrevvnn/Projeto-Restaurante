@@ -10,7 +10,6 @@ import model.Pratos;
 import model.Sobremesa;
 
 public class CardapioInicializao {
-
 	
 	
 	public List<Bebidas> retornaListaBebidas (){
@@ -114,31 +113,35 @@ public class CardapioInicializao {
 		prato1.setTipo("Macarronada");
 		prato1.setQuantidade(1);
 		prato1.setQuantidadeEstoque(10);
+		prato1.setPreco(new BigDecimal("12.50"));
 		
 		Pratos prato2 = new Pratos();
 		prato2.setNome("Berinjela a Bolonhesa");
 		prato2.setTipo("Vegetariano");
 		prato2.setQuantidade(0);
 		prato2.setQuantidadeEstoque(13);
+		prato2.setPreco(new BigDecimal("13.86"));
 		
 		Pratos prato3 = new Pratos();
 		prato3.setNome("Carne De Panela");
 		prato3.setTipo("Carne");
 		prato3.setQuantidade(0);
 		prato3.setQuantidadeEstoque(22);
+		prato3.setPreco(new BigDecimal("11.75"));
 		
 		Pratos prato4 = new Pratos();
 		prato4.setNome("Risoto de Camarão");
 		prato4.setTipo("Peixe");
 		prato4.setQuantidade(0);
 		prato4.setQuantidadeEstoque(6);
+		prato4.setPreco(new BigDecimal("13.75"));
 		
 		Pratos prato5 = new Pratos();
 		prato5.setNome("Canelone De Presunto e Queijo!");
 		prato5.setTipo("Massa");
 		prato5.setQuantidade(0);
 		prato5.setQuantidadeEstoque(10);
-		
+		prato5.setPreco(new BigDecimal("16.50"));
 		
 		pratos.add(prato1);
 		pratos.add(prato2);
